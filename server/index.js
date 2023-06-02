@@ -4,8 +4,8 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
-import shopsRoutes from './routes/shopsRoutes.js'
-import ordersRoute from './routes/ordersRoute.js'
+import shopsRoutes from './routes/shopsRoutes.js';
+import ordersRoute from './routes/ordersRoute.js';
 
 dotenv.config();
 
@@ -24,19 +24,22 @@ app.get('/', async (_, res) => {
   res.send('Best delivery server is working');
 });
 
-const PORT = process.env.PORT || 5001;
-mongoose
-  .connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log('MongoDB connected'))
-  .then(() => {
-    app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
+const connectDB = (url) => {
+  mongoose.set('strictQuery', true);
 
-    // Upload initial data about shops to MongoDB
-    // Shop.insertMany(shops);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+  mongoose
+    .connect(url)
+    .then(() => console.log('MongoDB connected'))
+    .catch((err) => console.log(err));
+};
+
+const startServer = async () => {
+  try {
+    connectDB(process.env.MONGO_URL);
+    app.listen(8080, () => console.log('Server is running on port 8080'));
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+startServer();
