@@ -91,7 +91,7 @@ const HistoryPage = () => {
           mt='1rem'
           display={isNonMobile ? 'flex' : 'block'}
         >
-          <Box maxWidth={isNonMobile ? '50%' : '100%'}>
+          <Box maxWidth={isNonMobile ? '50%' : '100%'} sx={{ flexGrow: 1 }}>
             <Grid container spacing={{ xs: 4, md: 3 }}>
               {el.orders.map((product) => (
                 <Grid
