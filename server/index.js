@@ -36,7 +36,7 @@ const connectDB = (url) => {
 const startServer = async () => {
   try {
     connectDB(process.env.MONGO_URL);
-    app.listen(8080, () => console.log('Server is running on port 8080'));
+    app.listen(4001, () => console.log('Server is running on port 8080'));
   } catch (error) {
     console.log(error);
   }
