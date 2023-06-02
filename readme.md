@@ -1,3 +1,5 @@
+Deployed project - https://best-delivery-2023.netlify.app/
+
 Delivery Service - Full-Stack MERN Project
 
 This is a full-stack MERN (MongoDB, Express.js, React.js, Node.js) project for a delivery service application. The front-end of the application is built with React.js, utilizing Redux Toolkit for state management and styled with MUI material. The back-end is developed using Node.js with Express.js. MongoDB is used for data storage. Additionally, Google Maps integration has been implemented for enhanced navigation using @react-google-maps/api.
